@@ -2,7 +2,7 @@
 	"name": "chat_app",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "https://jagerred/github.io/chat_app",
+	"homepage": "https://jagerred.github.io/chat_app",
 	"dependencies": {
 		"@emotion/react": "^11.10.5",
 		"@emotion/styled": "^11.10.5",
