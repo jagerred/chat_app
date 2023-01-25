@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/jagerred/chat_app/static/css/main.1cf2a367.css",
-    "main.js": "/jagerred/chat_app/static/js/main.95bfd1f6.js",
-    "static/media/TTFirsNeue-Medium.woff2": "/jagerred/chat_app/static/media/TTFirsNeue-Medium.9ca345d52acc7e74dbf8.woff2",
-    "static/media/TTFirsNeue-Light.woff2": "/jagerred/chat_app/static/media/TTFirsNeue-Light.00af9d45010b9b3d7bc7.woff2",
-    "static/media/TTFirsNeue-Bold.woff2": "/jagerred/chat_app/static/media/TTFirsNeue-Bold.b6b7358cb98d63027a2a.woff2",
-    "static/media/TTFirsNeue-Regular.woff2": "/jagerred/chat_app/static/media/TTFirsNeue-Regular.aa35bc5e7e663660cc20.woff2",
-    "index.html": "/jagerred/chat_app/index.html",
-    "main.1cf2a367.css.map": "/jagerred/chat_app/static/css/main.1cf2a367.css.map",
-    "main.95bfd1f6.js.map": "/jagerred/chat_app/static/js/main.95bfd1f6.js.map"
+    "main.css": "/github.io/chat_app/static/css/main.06cbcd1e.css",
+    "main.js": "/github.io/chat_app/static/js/main.49a52956.js",
+    "static/media/TTFirsNeue-Medium.woff2": "/github.io/chat_app/static/media/TTFirsNeue-Medium.9ca345d52acc7e74dbf8.woff2",
+    "static/media/TTFirsNeue-Light.woff2": "/github.io/chat_app/static/media/TTFirsNeue-Light.00af9d45010b9b3d7bc7.woff2",
+    "static/media/TTFirsNeue-Bold.woff2": "/github.io/chat_app/static/media/TTFirsNeue-Bold.b6b7358cb98d63027a2a.woff2",
+    "static/media/TTFirsNeue-Regular.woff2": "/github.io/chat_app/static/media/TTFirsNeue-Regular.aa35bc5e7e663660cc20.woff2",
+    "index.html": "/github.io/chat_app/index.html",
+    "main.06cbcd1e.css.map": "/github.io/chat_app/static/css/main.06cbcd1e.css.map",
+    "main.49a52956.js.map": "/github.io/chat_app/static/js/main.49a52956.js.map"
   },
   "entrypoints": [
-    "static/css/main.1cf2a367.css",
-    "static/js/main.95bfd1f6.js"
+    "static/css/main.06cbcd1e.css",
+    "static/js/main.49a52956.js"
   ]
 }
