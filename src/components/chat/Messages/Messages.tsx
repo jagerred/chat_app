@@ -31,7 +31,10 @@ const Messages = () => {
 	}, [data.chatId]);
 
 	const renderMessages = () => {
-		if (messages.length === 0) return <span>There is no messages yet</span>;
+		if (messages.length === 0)
+			return (
+				<span className={style.noMessagesText}>There is no messages yet</span>
+			);
 		if (currentUser)
 			return messages.map(({ id, text, img, senderId, date }) => {
 				const isCurrent = senderId === currentUser.uid;

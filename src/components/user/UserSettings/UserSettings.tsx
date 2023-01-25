@@ -84,6 +84,12 @@ const UserSettings = ({ isOpen, setIsOpen }: IModalProps) => {
 		});
 	};
 
+	const handleSignOut: () => void = () => {
+		signOut(auth);
+		setCurrentUser(null);
+		dispatch({ type: 'CLOSE_CHAT' });
+	};
+
 	return (
 		<Modal open={isOpen} onCancel={handleCancel} footer={[]} width={360}>
 			<div className={style.userSettings}>
@@ -100,16 +106,12 @@ const UserSettings = ({ isOpen, setIsOpen }: IModalProps) => {
 					)}
 				</button>
 				<input ref={fileInputRef} type='file' hidden onChange={handleImgFile} />
-				<button className={`${style.modalButton}  button`}>
+				<button
+					className={`${style.modalButton}  button`}
+					onClick={handleSignOut}
+				>
 					Sign Out
-					<RiLogoutCircleLine
-						className={style.icon}
-						onClick={() => {
-							signOut(auth);
-							setCurrentUser(null);
-							dispatch({ type: 'CLOSE_CHAT' });
-						}}
-					/>
+					<RiLogoutCircleLine className={style.icon} />
 				</button>
 			</div>
 		</Modal>

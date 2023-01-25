@@ -28,24 +28,20 @@ const ChatInput = () => {
 		if (currentUser) {
 			if (img) {
 				const storageRef = ref(storage, v4());
-				uploadBytesResumable(storageRef, img).then(
-					error => {
-						console.log(error);
-					},
-					() => {
-						getDownloadURL(storageRef).then(async downloadURL => {
-							await updateDoc(doc(db, 'chats', data.chatId), {
-								messages: arrayUnion({
-									id: v4(),
-									text,
-									senderId: currentUser.uid,
-									date: Timestamp.now(),
-									img: downloadURL,
-								}),
-							});
+				uploadBytesResumable(storageRef, img).then(() => {
+					getDownloadURL(storageRef).then(async downloadURL => {
+						await updateDoc(doc(db, 'chats', data.chatId), {
+							messages: arrayUnion({
+								id: v4(),
+								text,
+								senderId: currentUser.uid,
+								date: Timestamp.now(),
+								img: downloadURL,
+							}),
 						});
-					}
-				);
+						setText('');
+					});
+				});
 			} else if (text !== '') {
 				{
 					await updateDoc(doc(db, 'chats', data.chatId), {

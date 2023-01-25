@@ -5,7 +5,6 @@
 .messages {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	gap: toRem(14);
 	overflow-y: auto;
 	width: 100%;
@@ -66,4 +65,12 @@
 .time {
 	color: rgb(57, 57, 57);
 	font-size: toRem(12);
+}
+.noMessagesText {
+	display: inline-block;
+	align-self: center;
+	background-color: var(--primary-color);
+	border-radius: toRem(10);
+	padding: toRem(16);
+	color: white;
 }
