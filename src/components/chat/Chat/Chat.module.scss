@@ -1,0 +1,121 @@
+@import '/src/assets/sass/functions';
+@import '/src/assets/sass/vars';
+@import '/src/assets/sass/mixins';
+
+.container {
+	display: flex;
+	flex-direction: column;
+	width: 60%;
+	min-height: 100%;
+	box-shadow: 1px 2px 6px rgb(207, 207, 207);
+	border-radius: 0 10px 10px 0;
+	padding: toRem(18);
+	gap: toRem(10);
+}
+.header {
+	display: flex;
+	align-items: center;
+	gap: toRem(10);
+	padding-bottom: toRem(18);
+	border-bottom: 1px solid rgb(230, 230, 230);
+	margin-bottom: toRem(18);
+}
+.avatar {
+	overflow: hidden;
+	width: toRem(50);
+	height: toRem(50);
+	border-radius: 50%;
+}
+.name {
+	font-size: toRem(16);
+	font-weight: 500;
+}
+.moreButton {
+	margin-left: auto;
+	padding: toRem(10) toRem(10) toRem(5);
+}
+
+.menuButton {
+	display: flex;
+	align-items: center;
+	background-color: transparent;
+}
+.deleteButton {
+	background-color: rgb(238, 82, 82);
+	padding: 5px;
+	transition: all 0.2s ease-in-out;
+	&:hover {
+		transform: scale(1.4);
+	}
+}
+
+.inputContainer {
+	display: flex;
+	margin-top: auto;
+	align-items: center;
+	gap: toRem(10);
+}
+.input {
+	position: relative;
+	border: none;
+	width: 90%;
+	height: toRem(60);
+	padding: toRem(16);
+	padding-right: toRem(40);
+	border-radius: 10px;
+	background-color: var(--color-light-gray);
+	outline: none;
+}
+.send {
+	padding: toRem(10);
+	padding-bottom: toRem(6);
+	background-color: var(--primary-color);
+	color: white;
+}
+.attach {
+	cursor: pointer;
+	right: 0;
+	padding: toRem(10) toRem(10) toRem(6) toRem(10);
+	border: none;
+	border-radius: 50%;
+	transition: all 0.4s ease;
+	&:hover {
+		background-color: var(--primary-color);
+		color: white;
+	}
+}
+.select {
+	display: inline-block;
+	align-self: center;
+	margin: auto;
+	background-color: var(--primary-color);
+	border-radius: toRem(10);
+	padding: toRem(16);
+	color: white;
+}
+.backButton {
+	display: none;
+	padding: 10px 10px 6px 10px;
+	&:hover {
+		background-color: var(--primary-color);
+		color: white;
+	}
+}
+@include laptop {
+	.container {
+		width: 65%;
+	}
+}
+@include tablet {
+	.container {
+		width: 100%;
+		border-radius: 10px;
+	}
+	.backButton {
+		display: block;
+	}
+	.mobileHidden {
+		display: none;
+		transform: translateX(-100vw);
+	}
+}

@@ -1,0 +1,105 @@
+@import '/src/assets/sass/functions';
+@import '/src/assets/sass/vars';
+@import '/src/assets/sass/mixins';
+
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	padding: toRem(18);
+	min-height: 100%;
+	box-shadow: 1px 2px 6px rgb(207, 207, 207);
+	border-radius: 10px 0 0 10px;
+	flex: 2;
+}
+.buttonsList {
+	display: flex;
+	flex-direction: column;
+	gap: toRem(10);
+}
+.logoContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: toRem(3);
+}
+.logo {
+	width: toRem(44);
+	height: toRem(44);
+	padding: toRem(8);
+	background-color: var(--primary-color);
+	border-radius: 50%;
+	color: white;
+}
+.logoName {
+	color: inherit;
+	font-weight: 500;
+	text-align: center;
+}
+
+.button {
+	display: flex;
+	align-items: center;
+	gap: toRem(10);
+	padding: toRem(10) toRem(11) toRem(9);
+	color: black;
+	&:hover,
+	&:active {
+		background-color: var(--primary-color);
+		color: white;
+	}
+}
+.burgerButton {
+	border-radius: 10px;
+}
+.modalButton {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: toRem(6);
+	padding: 10px;
+	border-radius: 10px;
+	width: toRem(160);
+	&:hover {
+		color: white;
+		background-color: rgb(240, 82, 82);
+	}
+	&Avatar {
+		&:hover {
+			background-color: var(--color-green);
+		}
+	}
+}
+.icon {
+	width: toRem(22);
+	height: toRem(22);
+	color: inherit;
+}
+.userContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: toRem(22);
+}
+.addUser {
+	padding: toRem(8) toRem(9) toRem(6);
+}
+.userSettings {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: toRem(10);
+}
+.avatar {
+	overflow: hidden;
+	width: toRem(50);
+	height: toRem(50);
+	border-radius: 50%;
+	cursor: pointer;
+}
+@include laptop {
+	.container {
+		display: none;
+	}
+}

@@ -1,0 +1,117 @@
+@import '/src/assets/sass/functions';
+@import '/src/assets/sass/vars';
+@import '/src/assets/sass/mixins';
+
+.container {
+	display: flex;
+	flex-direction: column;
+	width: 30%;
+	padding: toRem(18);
+	border-radius: 0;
+	gap: toRem(10);
+	box-shadow: 1px 2px 6px rgb(207, 207, 207);
+}
+.title {
+	color: inherit;
+	font-size: toRem(20);
+	font-weight: 500;
+}
+.input {
+	margin-bottom: toRem(10);
+}
+.list {
+	display: flex;
+	flex-direction: column;
+	overflow: auto;
+	scrollbar-width: thin;
+	scrollbar-color: hsl(0 0% 50%);
+	border-radius: 10px;
+	box-shadow: 1px 2px 6px rgb(225, 225, 225);
+	width: 100%;
+}
+.item {
+	display: flex;
+	align-items: center;
+	gap: toRem(8);
+	background-color: #fff;
+	padding: toRem(10) toRem(12);
+	border-bottom: 1px solid var(--color-light-gray);
+	width: 100%;
+	cursor: pointer;
+	height: 76px;
+	transition: all 0.4s ease;
+	&:hover {
+		background-color: var(--primary-color-light);
+	}
+}
+.avatar {
+	width: toRem(50);
+	height: toRem(50);
+	border-radius: 100%;
+	overflow: hidden;
+}
+.text {
+	display: flex;
+	flex-direction: column;
+}
+.name {
+	font-size: toRem(16);
+	font-weight: 500;
+}
+.message {
+	font-size: toRem(14);
+	color: var(--color-gray);
+}
+.time {
+	color: var(--color-gray);
+	font-size: toRem(12);
+	margin-left: auto;
+}
+.addButton {
+	margin-left: auto;
+	padding: 10px 10px 6px 10px;
+	&:hover {
+		color: white;
+		background-color: var(--color-green);
+	}
+}
+.burgerButton {
+	display: none;
+	background: transparent;
+	margin-right: toRem(8);
+}
+.burgerContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50vw;
+	height: 24%;
+	position: absolute;
+	z-index: 2;
+	background-color: white;
+	box-shadow: 1px 2px 6px rgb(207, 207, 207);
+	border-radius: 10px;
+}
+.errorMessage {
+	display: inline-block;
+	padding: toRem(6);
+	margin: 0 auto;
+	color: rgb(241, 75, 75);
+}
+@include laptop {
+	.container {
+		width: 35%;
+		border-radius: 10px 0 0 10px;
+	}
+	.burgerButton {
+		display: inline-block;
+	}
+}
+@include tablet {
+	.container {
+		width: 100%;
+	}
+	.mobileHidden {
+		display: none;
+	}
+}

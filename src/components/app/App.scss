@@ -1,0 +1,86 @@
+@import '/src/assets/sass/functions';
+@import '/src/assets/sass/vars';
+@import '/src/assets/sass/mixins';
+
+* {
+	box-sizing: border-box;
+	font-family: 'TTFirsNeue';
+	margin: 0;
+	padding: 0;
+}
+body {
+	overflow-x: hidden;
+}
+.wrapper {
+	background-color: #fbfbfb;
+	height: 100vh;
+	min-width: 100vw;
+	padding: 10vh 10px;
+}
+.container {
+	display: flex;
+	background-color: inherit;
+	max-width: 1200px;
+	height: 80vh;
+	margin: 0 auto;
+	padding: 0 12px;
+}
+.button {
+	outline: none;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	user-select: none;
+	transition: all 0.3s ease;
+	&:active {
+		opacity: 0.9;
+	}
+	&:focus-visible {
+		outline: 3px solid rgb(255, 125, 55);
+	}
+}
+.image {
+	width: 100%;
+	min-height: 100%;
+	object-fit: cover;
+	vertical-align: baseline;
+	line-height: 0;
+	pointer-events: none;
+	transition: all 0.5s ease;
+	background-color: rgb(158, 158, 158);
+}
+.list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+@include laptop {
+	.wrapper {
+		padding: toRem(36) 10px;
+	}
+	.container {
+		height: 92vh;
+	}
+}
+@include tablet {
+	.wrapper {
+		padding: 0;
+	}
+	.container {
+		height: 100vh;
+		padding: 0;
+	}
+}
+::-webkit-scrollbar {
+	width: toRem(6);
+}
+::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-color: var(--primary-color-light);
+	&:hover {
+		background-color: var(--primary-color);
+	}
+}
