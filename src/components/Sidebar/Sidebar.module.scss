@@ -97,6 +97,7 @@
 	height: toRem(50);
 	border-radius: 50%;
 	cursor: pointer;
+	background-color: var(--color-light-gray);
 }
 @include laptop {
 	.container {

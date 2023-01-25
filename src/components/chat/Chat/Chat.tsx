@@ -24,7 +24,9 @@ const Chat = () => {
 							<BiArrowBack size={18} />
 						</button>
 						<div className={style.avatar}>
-							<img className='image' src={photoURL} alt='' />
+							{photoURL === '' ? null : (
+								<img className='image' src={photoURL} alt='' />
+							)}
 						</div>
 						<span className={style.name}>{displayName}</span>
 						<ChatMenu />

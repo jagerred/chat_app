@@ -25,7 +25,9 @@ const Message = ({ photo, text, img, isCurrent, time }: IMessageProps) => {
 			className={`${style.messageContainer} ${positionClass}`}
 		>
 			<div className={style.ava}>
-				<img className='image' src={photo} alt='avatar' />
+				{photo === '' ? null : (
+					<img className='image' src={photo} alt='avatar' />
+				)}
 			</div>
 			<div className={`${style.message} ${colorClass}`}>
 				<span className={style.text}>{text}</span>{' '}

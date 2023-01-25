@@ -23,14 +23,9 @@ const ChatsItem = ({
 	return (
 		<li className={style.item} onClick={handleSelect}>
 			<div className={style.avatar}>
-				<img
-					className='image'
-					src={
-						photo ||
-						'https://i.pinimg.com/564x/50/1c/63/501c63d4c6f5aad478c4a5a8347437d4.jpg'
-					}
-					alt={`${name} avatar`}
-				/>
+				{photo === '' ? null : (
+					<img className='image' src={photo} alt={`${name} avatar`} />
+				)}
 			</div>
 			<div className={style.text}>
 				<span className={style.name}>{name || 'Name'}</span>

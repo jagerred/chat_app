@@ -16,11 +16,13 @@ const Sidebar = () => {
 				</div>
 				<SidebarButtons isBurgerMenu={false} />
 				<div className={style.avatar}>
-					<img
-						className='image'
-						src={currentUser?.photoURL}
-						alt='user avatar'
-					/>
+					{currentUser?.photoURL === '' ? null : (
+						<img
+							className='image'
+							src={currentUser?.photoURL}
+							alt='user avatar'
+						/>
+					)}
 				</div>
 			</div>
 		</div>

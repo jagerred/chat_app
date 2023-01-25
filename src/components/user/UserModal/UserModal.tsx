@@ -56,6 +56,8 @@ const UserModal = () => {
 				const date = new Date().getTime();
 				const storageRef = ref(storage, `${displayName + date}`);
 				if (file) {
+					console.log(file);
+					console.log('файл есть');
 					uploadBytesResumable(storageRef, file).then(() => {
 						getDownloadURL(storageRef).then(async downloadURL => {
 							await updateProfile(res.user, {
@@ -73,6 +75,8 @@ const UserModal = () => {
 						});
 					});
 				} else {
+					console.log(file);
+					console.log('файла нет');
 					updateProfile(res.user, {
 						displayName,
 						photoURL: '',
