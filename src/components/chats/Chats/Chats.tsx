@@ -41,15 +41,15 @@ const Chats = () => {
 			)
 			?.sort((a, b) => Number(b[1].date) - Number(a[1].date))
 			.map(i => {
-				const { displayName, photoURL } = i[1].userInfo;
+				const { displayName, photoURL, uid } = i[1].userInfo;
 				const { lastMessage, date } = i[1];
 				return (
 					<ChatsItem
 						key={i[0]}
 						id={i[0]}
+						uid={uid}
 						name={displayName}
 						message={lastMessage?.text || ''}
-						photo={photoURL}
 						time={date}
 						handleSelect={() => handleSelect(i[1].userInfo)}
 					/>

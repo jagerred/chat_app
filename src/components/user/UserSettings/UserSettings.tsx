@@ -9,6 +9,7 @@ import {
 	uploadBytesResumable,
 	getDownloadURL,
 	deleteObject,
+	StorageReference,
 } from 'firebase/storage';
 import { auth, db, storage } from 'firebaseConf';
 import { Modal } from 'antd';
@@ -40,36 +41,40 @@ const UserSettings = ({ isOpen, setIsOpen }: IModalProps) => {
 	};
 
 	const confirm = Modal.confirm;
-
-	const changeAvatar = () => {
-		if (currentUser && img && currentUser.photoURL) {
-			setIsImgLoading(true);
-			const date = new Date().getTime();
-			const prevAvatarRef = ref(storage, currentUser.photoURL);
-			const storageRef = ref(storage, `${currentUser.displayName! + date}`);
-			uploadBytesResumable(storageRef, img)
-				.then(() => {
-					getDownloadURL(storageRef).then(async downloadURL => {
-						await updateProfile(auth.currentUser!, {
-							photoURL: downloadURL,
-						});
-						await updateDoc(doc(db, 'users', currentUser.uid), {
-							photoURL: downloadURL,
-						});
-						await deleteObject(prevAvatarRef)
-							.then(() => {})
-							.catch(error => {
-								if (error instanceof Error) console.log(error);
-							});
-						setIsImgLoading(false);
-						setImg(null);
-						setCurrentUser({ ...currentUser, photoURL: downloadURL });
-						handleCancel();
-					});
-				})
-				.catch((e: Error) => {
-					if (e instanceof Error) console.log(e);
+	const photo = currentUser!.photoURL;
+	const deletePrevAvatar = (prev: StorageReference | null) => {
+		if (prev)
+			deleteObject(prev)
+				.then(() => {})
+				.catch(error => {
+					if (error instanceof Error) console.log(error);
 				});
+	};
+	const changeAvatar = async () => {
+		if (currentUser && img) {
+			console.log(2);
+			setIsImgLoading(true);
+			const prevAvatarRef = photo !== '' ? ref(storage, photo) : null;
+			const date = new Date().getTime();
+			const storageRef = ref(storage, `${currentUser.displayName! + date}`);
+			await uploadBytesResumable(storageRef, img);
+			await getDownloadURL(storageRef).then(async downloadURL => {
+				await updateProfile(auth.currentUser!, {
+					photoURL: downloadURL,
+				});
+				await updateDoc(doc(db, 'users', currentUser.uid), {
+					photoURL: downloadURL,
+				});
+				setCurrentUser({ ...currentUser, photoURL: downloadURL });
+			});
+			deletePrevAvatar(prevAvatarRef);
+			setIsImgLoading(false);
+			setImg(null);
+			handleCancel();
+
+			//.catch((e: Error) => {
+			//	if (e instanceof Error) console.log(e);
+			//});
 		}
 	};
 

@@ -1,25 +1,42 @@
 import DeleteChatModal from 'components/shared/DeleteChatModal/DeleteChatModal';
 import style from 'components/chats/Chats/Chats.module.scss';
-import { ITimeStamp } from 'types';
+import { ITimeStamp, IUserInfo } from 'types';
 import { dateToString } from 'utils/dateToString';
+import { useEffect, useState, useContext } from 'react';
+
+import { doc, onSnapshot } from 'firebase/firestore';
+import { db } from 'firebaseConf';
+import { AuthContext } from 'context/AuthContext';
 
 interface ChatsItemProps {
 	id: string;
 	name: string;
 	message: string;
-	photo: string;
 	time: ITimeStamp;
+	uid: string;
 	handleSelect: () => void;
 }
 
 const ChatsItem = ({
 	id,
+	uid,
 	name,
 	message,
 	time,
-	photo,
 	handleSelect,
 }: ChatsItemProps) => {
+	const [photo, setPhoto] = useState('');
+	const { currentUser } = useContext(AuthContext);
+	useEffect(() => {
+		const unsub = onSnapshot(doc(db, 'users', uid), doc => {
+			const newUserData = doc.data() as IUserInfo;
+			setPhoto(newUserData.photoURL);
+		});
+
+		return () => {
+			unsub();
+		};
+	}, []);
 	return (
 		<li className={style.item} onClick={handleSelect}>
 			<div className={style.avatar}>
