@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/chat_app/static/css/main.f74f070d.css",
-    "main.js": "/chat_app/static/js/main.c546786a.js",
+    "main.js": "/chat_app/static/js/main.59c0e8c6.js",
     "static/media/TTFirsNeue-Medium.woff2": "/chat_app/static/media/TTFirsNeue-Medium.9ca345d52acc7e74dbf8.woff2",
     "static/media/TTFirsNeue-Light.woff2": "/chat_app/static/media/TTFirsNeue-Light.00af9d45010b9b3d7bc7.woff2",
     "static/media/TTFirsNeue-Bold.woff2": "/chat_app/static/media/TTFirsNeue-Bold.b6b7358cb98d63027a2a.woff2",
     "static/media/TTFirsNeue-Regular.woff2": "/chat_app/static/media/TTFirsNeue-Regular.aa35bc5e7e663660cc20.woff2",
     "index.html": "/chat_app/index.html",
     "main.f74f070d.css.map": "/chat_app/static/css/main.f74f070d.css.map",
-    "main.c546786a.js.map": "/chat_app/static/js/main.c546786a.js.map"
+    "main.59c0e8c6.js.map": "/chat_app/static/js/main.59c0e8c6.js.map"
   },
   "entrypoints": [
     "static/css/main.f74f070d.css",
-    "static/js/main.c546786a.js"
+    "static/js/main.59c0e8c6.js"
   ]
 }
