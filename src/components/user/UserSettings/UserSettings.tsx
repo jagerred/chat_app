@@ -52,7 +52,6 @@ const UserSettings = ({ isOpen, setIsOpen }: IModalProps) => {
 	};
 	const changeAvatar = async () => {
 		if (currentUser && img) {
-			console.log(2);
 			setIsImgLoading(true);
 			const prevAvatarRef = photo !== '' ? ref(storage, photo) : null;
 			const date = new Date().getTime();
@@ -71,10 +70,6 @@ const UserSettings = ({ isOpen, setIsOpen }: IModalProps) => {
 			setIsImgLoading(false);
 			setImg(null);
 			handleCancel();
-
-			//.catch((e: Error) => {
-			//	if (e instanceof Error) console.log(e);
-			//});
 		}
 	};
 
