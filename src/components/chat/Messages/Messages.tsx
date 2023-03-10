@@ -40,7 +40,6 @@ const Messages = () => {
 				const isCurrent = senderId === currentUser.uid;
 				const photo = isCurrent ? currentUser.photoURL : photoURL;
 				const time = dateToString(date.seconds);
-				console.log(data.user);
 				return (
 					<Message
 						key={id}

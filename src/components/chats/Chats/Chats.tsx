@@ -41,7 +41,7 @@ const Chats = () => {
 			)
 			?.sort((a, b) => Number(b[1].date) - Number(a[1].date))
 			.map(i => {
-				const { displayName, photoURL, uid } = i[1].userInfo;
+				const { displayName, uid } = i[1].userInfo;
 				const { lastMessage, date } = i[1];
 				return (
 					<ChatsItem

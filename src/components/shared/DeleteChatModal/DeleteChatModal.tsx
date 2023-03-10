@@ -20,7 +20,7 @@ const DeleteChatModal = ({
 	const { currentUser } = useContext(AuthContext);
 	const { dispatch } = useContext(ChatContext);
 
-	const isChat = type === 'chat' ? true : false;
+	const isChat = type === 'chat';
 
 	const deleteChat = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 		e.stopPropagation();

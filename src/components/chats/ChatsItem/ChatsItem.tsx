@@ -26,7 +26,6 @@ const ChatsItem = ({
 	handleSelect,
 }: ChatsItemProps) => {
 	const [photo, setPhoto] = useState('');
-	const { currentUser } = useContext(AuthContext);
 	useEffect(() => {
 		const unsub = onSnapshot(doc(db, 'users', uid), doc => {
 			const newUserData = doc.data() as IUserInfo;
@@ -37,6 +36,7 @@ const ChatsItem = ({
 			unsub();
 		};
 	}, []);
+
 	return (
 		<li className={style.item} onClick={handleSelect}>
 			<div className={style.avatar}>

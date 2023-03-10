@@ -43,16 +43,14 @@ const ChatInput = () => {
 					});
 				});
 			} else if (text !== '') {
-				{
-					await updateDoc(doc(db, 'chats', data.chatId), {
-						messages: arrayUnion({
-							id: v4(),
-							text,
-							senderId: currentUser.uid,
-							date: Timestamp.now(),
-						}),
-					});
-				}
+				await updateDoc(doc(db, 'chats', data.chatId), {
+					messages: arrayUnion({
+						id: v4(),
+						text,
+						senderId: currentUser.uid,
+						date: Timestamp.now(),
+					}),
+				});
 
 				await updateDoc(doc(db, 'userChats', currentUser.uid), {
 					[data.chatId + '.lastMessage']: {

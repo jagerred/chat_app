@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { MdAlternateEmail } from 'react-icons/md';
 import { RiLockPasswordFill } from 'react-icons/ri';
@@ -54,80 +54,78 @@ const UserSignin = ({
 		handleClick(data.email, data.password, data.displayName, img);
 
 	return (
-		<>
-			<div className={formStyle.formContainer}>
-				<h2 className={formStyle.title}>{title}</h2>
-				<form
-					action=''
-					className={formStyle.form}
-					onSubmit={handleSubmit(onSubmit)}
-				>
-					<div className={formStyle.inputContainer}>
-						<FaUserCircle className={formStyle.icon} />
-						<input
-							className={formStyle.input}
-							type='text'
-							placeholder='Полное имя'
-							{...register('displayName')}
-						/>
-					</div>
-					<div className={formStyle.inputContainer}>
-						<MdAlternateEmail className={formStyle.icon} />
-						<input
-							className={formStyle.input}
-							type='email'
-							placeholder='Email'
-							{...register('email', { required: 'Email обязателен' })}
-						/>
-					</div>
-					{errors?.email && (
-						<span className={formStyle.error}>
-							{errors?.email?.message || 'Email is required'}
-						</span>
-					)}
-					<div className={formStyle.inputContainer}>
-						<RiLockPasswordFill className={formStyle.icon} />
-						<input
-							className={formStyle.input}
-							type='password'
-							placeholder='Пароль'
-							{...register('password', {
-								required: 'И пароль тоже!',
-								minLength: {
-									value: 5,
-									message: 'Минимум 5 символов',
-								},
-							})}
-						/>
-					</div>
-					{errors?.password && (
-						<span className={formStyle.error}>
-							{errors?.password?.message || 'Password is required'}
-						</span>
-					)}
-					<div className={formStyle.imgInput}>
-						<ImgInput img={img} setImg={setImg} /> <span>Add avatar</span>
-					</div>
-					<button
-						type='submit'
-						className={`button ${formStyle.button}`}
-						disabled={!isValid}
-					>
-						{buttonName}
-					</button>
-				</form>
-				<div className={formStyle.text}>
-					{isModalLogin ? `Нет аккаунта?` : 'Есть аккаунт?'}
-					<span
-						className={formStyle.link}
-						onClick={() => setModalLogin(!isModalLogin)}
-					>
-						{isModalLogin ? `Создать` : 'Войти'}
-					</span>
+		<div className={formStyle.formContainer}>
+			<h2 className={formStyle.title}>{title}</h2>
+			<form
+				action=''
+				className={formStyle.form}
+				onSubmit={handleSubmit(onSubmit)}
+			>
+				<div className={formStyle.inputContainer}>
+					<FaUserCircle className={formStyle.icon} />
+					<input
+						className={formStyle.input}
+						type='text'
+						placeholder='Полное имя'
+						{...register('displayName')}
+					/>
 				</div>
-				<span className={formStyle.error}>{authError}</span>
+				<div className={formStyle.inputContainer}>
+					<MdAlternateEmail className={formStyle.icon} />
+					<input
+						className={formStyle.input}
+						type='email'
+						placeholder='Email'
+						{...register('email', { required: 'Email обязателен' })}
+					/>
+				</div>
+				{errors?.email && (
+					<span className={formStyle.error}>
+						{errors?.email?.message || 'Email is required'}
+					</span>
+				)}
+				<div className={formStyle.inputContainer}>
+					<RiLockPasswordFill className={formStyle.icon} />
+					<input
+						className={formStyle.input}
+						type='password'
+						placeholder='Пароль'
+						{...register('password', {
+							required: 'И пароль тоже!',
+							minLength: {
+								value: 5,
+								message: 'Минимум 5 символов',
+							},
+						})}
+					/>
+				</div>
+				{errors?.password && (
+					<span className={formStyle.error}>
+						{errors?.password?.message || 'Password is required'}
+					</span>
+				)}
+				<div className={formStyle.imgInput}>
+					<ImgInput img={img} setImg={setImg} /> <span>Add avatar</span>
+				</div>
+				<button
+					type='submit'
+					className={`button ${formStyle.button}`}
+					disabled={!isValid}
+				>
+					{buttonName}
+				</button>
+			</form>
+			<div className={formStyle.text}>
+				{isModalLogin ? `Нет аккаунта?` : 'Есть аккаунт?'}
+				<span
+					className={formStyle.link}
+					onClick={() => setModalLogin(!isModalLogin)}
+				>
+					{isModalLogin ? `Создать` : 'Войти'}
+				</span>
 			</div>
-		</>
+			<span className={formStyle.error}>{authError}</span>
+		</div>
 	);
 };
 export default UserSignin;

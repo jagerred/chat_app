@@ -44,20 +44,18 @@ const UserModal = () => {
 		setModalLogin(true);
 	};
 
-	function handleSignUp(
+	const handleSignUp = (
 		email: string,
 		password: string,
 		displayName: string,
 		file: File | null
-	) {
+	) => {
 		setIsLoading(true);
 		createUserWithEmailAndPassword(auth, email, password)
 			.then(res => {
 				const date = new Date().getTime();
 				const storageRef = ref(storage, `${displayName + date}`);
 				if (file) {
-					console.log(file);
-					console.log('файл есть');
 					uploadBytesResumable(storageRef, file).then(() => {
 						getDownloadURL(storageRef).then(async downloadURL => {
 							await updateProfile(res.user, {
@@ -75,8 +73,6 @@ const UserModal = () => {
 						});
 					});
 				} else {
-					console.log(file);
-					console.log('файла нет');
 					updateProfile(res.user, {
 						displayName,
 						photoURL: '',
@@ -97,7 +93,7 @@ const UserModal = () => {
 					setAuthError(handleAuthError(error.message));
 				}
 			});
-	}
+	};
 
 	return (
 		<div className={style.modalContainer}>

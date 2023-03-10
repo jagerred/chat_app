@@ -3,7 +3,7 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 import Home from 'components/Home/Home';
 import UserModal from 'components/user/UserModal/UserModal';
 import ProtectedRoute from 'components/shared/ProtectedRoute/ProtectedRoute';
-function App() {
+const App = () => {
 	return (
 		<HashRouter>
 			<Routes>
@@ -12,6 +12,6 @@ function App() {
 			</Routes>
 		</HashRouter>
 	);
-}
+};
 
 export default App;

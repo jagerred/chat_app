@@ -66,19 +66,16 @@ const AddUser = ({ isOpen, setIsOpen }: IModalProps) => {
 		if (e.code === 'Enter') handleSearch();
 	};
 
-	const renderUsers = () => {
-		return users.map(({ uid, displayName, photoURL }: IUserInfo) => {
-			return (
-				<AddUserItem
-					key={`${uid + displayName}`}
-					id={uid}
-					name={displayName}
-					photo={photoURL}
-					handleCancel={handleCancel}
-				/>
-			);
-		});
-	};
+	const renderUsers = () =>
+		users.map(({ uid, displayName, photoURL }: IUserInfo) => (
+			<AddUserItem
+				key={`${uid + displayName}`}
+				id={uid}
+				name={displayName}
+				photo={photoURL}
+				handleCancel={handleCancel}
+			/>
+		));
 
 	const searchMessage = searchError
 		? 'Search error! Please, try again!'

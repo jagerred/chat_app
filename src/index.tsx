@@ -1,18 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.scss';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 import App from './components/app/App';
 import { AuthContextProvider } from 'context/AuthContext';
 import { ChatContextProvider } from 'context/ChatContext';
 import { ChatsContextProvider } from 'context/ChatsContext ';
-const root = ReactDOM.createRoot(document.getElementById('root')!);
+import './index.scss';
+const root = createRoot(document.getElementById('root')!);
 root.render(
 	<AuthContextProvider>
 		<ChatsContextProvider>
 			<ChatContextProvider>
-				<React.StrictMode>
+				<StrictMode>
 					<App />
-				</React.StrictMode>
+				</StrictMode>
 			</ChatContextProvider>
 		</ChatsContextProvider>
 	</AuthContextProvider>
